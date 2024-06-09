@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="./assets/stopwatch.png"
+      type="image/x-icon"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/3b9dde7e3f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <img src="./assets/stopwatch.png" alt="Stopwatch" class="logo" />
+      </div>
+      <div class="display">
+        <div class="time">
+          <p id="hour">00</p>
+          <span class="timeUnit">Hrs</span>
+        </div>
+        <p>:</p>
+        <div class="time">
+          <p id="minute">00</p>
+          <span class="timeUnit">Min</span>
+        </div>
+        <p>:</p>
+        <div class="time">
+          <p id="second">00</p>
+          <span class="timeUnit">Sec</span>
+        </div>
+        <p>:</p>
+        <div class="time">
+          <p id="miliSecond">00</p>
+          <span class="timeUnit">Ms</span>
+        </div>
+      </div>
+      <div class="btnContainer">
+        <button class="functionBtn" id="play" onclick="play()">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button class="functionBtn hideBtn" id="pause" onclick="pause()">
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <button class="functionBtn hideBtn" id="reset" onclick="reset()">
+          <i class="fa-solid fa-stop"></i>
+        </button>
+        <button class="functionBtn hideBtn" id="bookmark" onclick="bookmark()">
+          <i class="fa-solid fa-bookmark"></i>
+        </button>
+      </div>
+      <div class="noteDown">
+        <!-- <p>01. 00Hrs : 00Min : 03Sec : 10Ms</p> -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
