@@ -10,6 +10,10 @@ let bookmarkBtn = document.getElementById("bookmark");
 
 let noteDown = document.querySelector(".noteDown");
 
+let footerDiv = document.querySelector(".footer");
+let backBtn = document.getElementById("backBtn");
+let refreshBtn = document.getElementById("refreshBtn");
+
 let hr = 0;
 let min = 0;
 let sec = 0;
@@ -47,8 +51,6 @@ const reset = () => {
   pauseBtn.style.display = "none";
   bookmarkBtn.style.display = "none";
   playBtn.style.display = "block";
-
-  noteDown.innerHTML = "";
 };
 
 const stopwatch = () => {
@@ -102,6 +104,7 @@ const stopwatch = () => {
 };
 
 const bookmark = () => {
+  footerDiv.style.display = "block";
   let readingMiliSecond = miliSecond.textContent;
   let readingSecond = second.textContent;
   let readingMinute = minute.textContent;
@@ -115,4 +118,24 @@ const bookmark = () => {
   }
   paragraph.textContent = `${paragraphNumberFormat}. ${readingHour}Hrs : ${readingMinute}Min : ${readingSecond}Sec : ${readingMiliSecond}Ms`;
   noteDown.appendChild(paragraph);
+};
+
+backBtn.addEventListener("click", () => {
+  let paragraphsToBeRemoved = noteDown.getElementsByTagName("p");
+  if (paragraphsToBeRemoved.length > 0) {
+    let lastParagraph = paragraphsToBeRemoved[paragraphsToBeRemoved.length - 1];
+    noteDown.removeChild(lastParagraph);
+    hideBackBtn();
+  }
+});
+
+refreshBtn.addEventListener("click", () => {
+  noteDown.innerHTML = "";
+  hideBackBtn();
+});
+
+const hideBackBtn = () => {
+  if (noteDown.children.length === 0) {
+    footerDiv.style.display = "none";
+  }
 };
